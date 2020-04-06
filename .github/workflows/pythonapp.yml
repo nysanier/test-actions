@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  job1:
+  linux-job:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -20,19 +20,35 @@ jobs:
         python-version: 3.8
     - name: step2 - Test with pytest
       run: |
+        pwd
         uname -a
         python --version
         python test-1.py
-  job2:
-    runs-on: macos-latest
+  macos-job:
+    runs-on: macos-10.14
     steps:
     - uses: actions/checkout@v2
-    - name: step1 - Set up Python 3.8
+    - name: step1 - Set up Python 3.6
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
     - name: step2 - Test with pytest
       run: |
+        pwd
+        uname -a
+        python --version
+        python test-1.py
+  windows-job:
+    runs-on: windows-2016
+    steps:
+    - uses: actions/checkout@v2
+    - name: step1 - Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: step2 - Test with pytest
+      run: |
+        cwd
         uname -a
         python --version
         python test-1.py
