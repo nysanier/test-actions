@@ -10,16 +10,29 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  job1:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: step1 - Set up Python 3.8
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    - name: Test with pytest
+    - name: step2 - Test with pytest
       run: |
+        uname -a
+        python --version
+        python test-1.py
+  job2:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: step1 - Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+    - name: step2 - Test with pytest
+      run: |
+        uname -a
+        python --version
         python test-1.py
