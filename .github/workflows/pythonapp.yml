@@ -12,6 +12,7 @@ on:
 jobs:
   linux-job:
     runs-on: ubuntu-latest
+    needs: [windows-job]
     steps:
     - uses: actions/checkout@v2
     - name: step1 - Set up Python 3.8
@@ -25,7 +26,7 @@ jobs:
         python --version
         python test-1.py
   macos-job:
-    runs-on: macos-10.14
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: step1 - Set up Python 3.6
@@ -39,7 +40,7 @@ jobs:
         python --version
         python test-1.py
   windows-job:
-    runs-on: windows-2016
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
     - name: step1 - Set up Python 3.7
