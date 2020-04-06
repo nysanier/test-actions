@@ -49,6 +49,6 @@ jobs:
     - name: step2 - Test with pytest
       run: |
         cwd
-        uname -a
+        systeminfo
         python --version
         python test-1.py
