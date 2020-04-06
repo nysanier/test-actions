@@ -48,7 +48,6 @@ jobs:
         python-version: 3.7
     - name: step2 - Test with pytest
       run: |
-        cwd
         systeminfo
         python --version
         python test-1.py
